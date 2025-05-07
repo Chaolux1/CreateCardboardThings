@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "create:cardboard_sword"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  X",
+    " # ",
+    "X  "
+  ],
+  "result": {
+    "count": 16,
+    "item": "createcardboardthings:cardboard_arrow"
+  },
+  "show_notification": true
+}

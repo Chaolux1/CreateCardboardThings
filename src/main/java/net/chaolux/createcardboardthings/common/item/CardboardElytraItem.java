@@ -57,6 +57,7 @@ public class CardboardElytraItem extends ElytraItem {
         else if(!isFlying && flightStart) {
             player.setItemSlot(EquipmentSlot.CHEST, ItemStack.EMPTY);
             player.inventoryMenu.broadcastChanges();
+            tag.putBoolean("flightStart", false);
         }
     }
 }

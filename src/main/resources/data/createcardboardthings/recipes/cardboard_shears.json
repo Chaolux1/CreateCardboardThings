@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "create:cardboard"
+    }
+  },
+  "pattern": [
+    "  #",
+    " # ",
+    "   "
+  ],
+  "result": {
+    "item": "createcardboardthings:cardboard_shears"
+  },
+  "show_notification": true
+}
