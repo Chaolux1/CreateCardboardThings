@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "create:cardboard"
+    },
+    "X": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "pattern": [
+    "#XX",
+    "   ",
+    "   "
+  ],
+  "result": {
+    "count": 4,
+    "item": "createcardboardthings:cardboard_rocket"
+  },
+  "show_notification": true
+}

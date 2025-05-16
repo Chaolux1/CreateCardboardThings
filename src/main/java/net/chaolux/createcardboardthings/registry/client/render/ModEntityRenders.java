@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.registry.client.render;
 
+import net.chaolux.createcardboardthings.client.render.CardboardBallRenderer;
 import net.chaolux.createcardboardthings.client.render.CardboardElytraLayer;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.minecraft.client.model.PlayerModel;
@@ -18,6 +19,7 @@ public class ModEntityRenders {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.CARDBOARD_ARROW.get(), CardboardArrowRenderer::new);
+        event.registerEntityRenderer(ModEntities.CARDBOARD_BALL.get(), CardboardBallRenderer::new);
     }
 
     @SubscribeEvent

@@ -1,0 +1,24 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "A": {
+      "item": "create:cardboard"
+    },
+    "P": {
+      "item": "minecraft:dragon_breath"
+    },
+    "S": {
+      "item": "create:cardboard_block"
+    }
+  },
+  "pattern": [
+    "  S  ",
+    "AAPAA",
+    " A A ",
+    " A A "
+  ],
+  "result": {
+    "item": "createcardboardthings:cardboard_totem"
+  }
+}

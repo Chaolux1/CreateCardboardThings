@@ -60,10 +60,18 @@ public class CreateCardboardThings
             event.accept(ModItems.CARDBOARD_ELYTRA);
             event.accept(ModItems.CARDBOARD_PICKAXE);
             event.accept(ModItems.CARDBOARD_SHEARS);
+            event.accept(ModItems.CARDBOARD_SADDLE);
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.accept(ModItems.CARDBOARD_ARROW);
+            event.accept(ModItems.CARDBOARD_TOTEM);
+            event.accept(ModItems.CARDBOARD_BALL);
+            event.accept(ModItems.CARDBOARD_ROCKET);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.CARDBOARD_INGOT);
         }
     }
 

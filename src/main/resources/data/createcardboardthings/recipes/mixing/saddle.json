@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "createcardboardthings:cardboard_saddle"
+    },
+    {
+      "item": "minecraft:orange_dye"
+    },
+    {
+      "tag": "forge:nuggets/iron"
+    },
+    {
+      "tag": "forge:nuggets/iron"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:saddle"
+    }
+  ]
+}
