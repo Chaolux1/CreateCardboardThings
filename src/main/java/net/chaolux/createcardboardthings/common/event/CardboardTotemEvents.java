@@ -1,6 +1,9 @@
 package net.chaolux.createcardboardthings.common.event;
 
 import net.chaolux.createcardboardthings.registry.item.ModItems;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.protocol.game.ClientboundEntityEventPacket;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -26,6 +29,10 @@ public class CardboardTotemEvents {
             entity.addEffect(new MobEffectInstance(MobEffects.JUMP,640,1));
             entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,640,1));
             entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,160,1));
+
+            if(entity instanceof ServerPlayer serverPlayer) {
+                serverPlayer.connection.send(new ClientboundEntityEventPacket(serverPlayer, (byte) 35));
+            }
 
             InteractionHand hand=entity.getMainHandItem()==totem?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
             entity.setItemInHand(hand,ItemStack.EMPTY);
