@@ -40,10 +40,10 @@ public class ModItems {
         CARDBOARD_PICKAXE = registerWithTab("cardboard_pickaxe", () -> new CardboardPickaxeItem(CardboardTier.CARDBOARD, 1,-2.8F,basicItem().stacksTo(1)));
         CARDBOARD_SHEARS = registerWithTab("cardboard_shears", () -> new CardboardShearsItem(basicItem().stacksTo(1).durability(1)));
         CARDBOARD_BALL = registerWithTab("cardboard_ball", () -> new CardboardBallItem(basicItem().stacksTo(16)));
-        CARDBOARD_INGOT = registerWithTab("cardboard_ingot", () -> new Item(basicItem()));
+        CARDBOARD_INGOT = registerWithTab("cardboard_ingot", () -> new CardboardIngotItem(basicItem()));
         CARDBOARD_ROCKET = registerWithTab("cardboard_rocket", () -> new CardboardRocketItem(basicItem()));
-        CARDBOARD_SADDLE = registerWithTab("cardboard_saddle", () -> new Item(basicItem().stacksTo(1)));
-        CARDBOARD_TOTEM = registerWithTab("cardboard_totem", () -> new Item(basicItem().stacksTo(1)));
+        CARDBOARD_SADDLE = registerWithTab("cardboard_saddle", () -> new CardboardSaddleItem(basicItem().stacksTo(1)));
+        CARDBOARD_TOTEM = registerWithTab("cardboard_totem", () -> new CardboardTotemItem(basicItem().stacksTo(1)));
 
     }
 }

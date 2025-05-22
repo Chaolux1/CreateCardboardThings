@@ -1,5 +1,7 @@
 package net.chaolux.createcardboardthings.common.item;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -8,8 +10,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FireworkRocketEntity;
 import net.minecraft.world.item.FireworkRocketItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 
 public class CardboardRocketItem extends FireworkRocketItem {
@@ -37,5 +43,10 @@ public class CardboardRocketItem extends FireworkRocketItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         return InteractionResult.PASS;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+        tooltip.add(Component.translatable("tooltip.createcardboardthings.cardboard_rocket").withStyle(ChatFormatting.GRAY));
     }
 }

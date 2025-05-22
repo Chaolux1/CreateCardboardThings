@@ -20,7 +20,7 @@ public class CardboardTotemEvents {
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.level().isClientSide) {
+        if (entity.level().isClientSide) return;
             ItemStack totem = currentCardboardTotem(entity);
             if (!totem.isEmpty()) {
                 event.setCanceled(true);
@@ -37,7 +37,6 @@ public class CardboardTotemEvents {
                 InteractionHand hand = entity.getMainHandItem() == totem ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
                 entity.setItemInHand(hand, ItemStack.EMPTY);
             }
-        }
     }
 
     private static ItemStack currentCardboardTotem(LivingEntity entity) {

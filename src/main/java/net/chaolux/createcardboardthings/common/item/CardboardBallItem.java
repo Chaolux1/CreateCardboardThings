@@ -2,6 +2,8 @@ package net.chaolux.createcardboardthings.common.item;
 
 import net.chaolux.createcardboardthings.common.entity.CardboardBallEntity;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.InteractionHand;
@@ -14,10 +16,14 @@ import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SnowballItem;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.network.NetworkHooks;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class CardboardBallItem extends SnowballItem {
     public CardboardBallItem(Properties p_43140_) {
@@ -35,5 +41,10 @@ public class CardboardBallItem extends SnowballItem {
         }
         player.getCooldowns().addCooldown(this,10);
         return InteractionResultHolder.sidedSuccess(itemStack,level.isClientSide());
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+        tooltip.add(Component.translatable("tooltip.createcardboardthings.cardboard_ball").withStyle(ChatFormatting.GRAY));
     }
 }

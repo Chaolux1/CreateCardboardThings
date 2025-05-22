@@ -1,15 +1,21 @@
 package net.chaolux.createcardboardthings.common.item;
 
 import net.chaolux.createcardboardthings.registry.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ElytraItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.fml.common.Mod;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class CardboardElytraItem extends ElytraItem {
     public CardboardElytraItem(Properties p_41132_) {
@@ -43,21 +49,25 @@ public class CardboardElytraItem extends ElytraItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        if(!(entity instanceof Player player)) return;
-        if(level.isClientSide) return;
-        ItemStack chest=player.getItemBySlot(EquipmentSlot.CHEST);
-        if(!chest.is(ModItems.CARDBOARD_ELYTRA.get())) return;
-        boolean isFlying=player.isFallFlying();
-        var tag=stack.getOrCreateTag();
-        boolean flightStart=tag.getBoolean("flightStart");
+        if (!(entity instanceof Player player)) return;
+        if (level.isClientSide) return;
+            ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+            if (!chest.is(ModItems.CARDBOARD_ELYTRA.get())) return;
+            boolean isFlying = player.isFallFlying();
+            var tag = stack.getOrCreateTag();
+            boolean flightStart = tag.getBoolean("flightStart");
 
-        if(isFlying && !flightStart) {
-            tag.putBoolean("flightStart", true);
-        }
-        else if(!isFlying && flightStart) {
-            player.setItemSlot(EquipmentSlot.CHEST, ItemStack.EMPTY);
-            player.inventoryMenu.broadcastChanges();
-            tag.putBoolean("flightStart", false);
-        }
+            if (isFlying && !flightStart) {
+                tag.putBoolean("flightStart", true);
+            } else if (!isFlying && flightStart) {
+                player.setItemSlot(EquipmentSlot.CHEST, ItemStack.EMPTY);
+                player.inventoryMenu.broadcastChanges();
+                tag.putBoolean("flightStart", false);
+            }
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+        tooltip.add(Component.translatable("tooltip.createcardboardthings.cardboard_ball").withStyle(ChatFormatting.GRAY));
     }
 }
