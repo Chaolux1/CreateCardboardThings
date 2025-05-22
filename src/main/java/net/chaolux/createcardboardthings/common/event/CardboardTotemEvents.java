@@ -19,23 +19,24 @@ public class CardboardTotemEvents {
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
-        LivingEntity entity=event.getEntity();
-        if(entity.level().isClientSide) return;
-        ItemStack totem=currentCardboardTotem(entity);
-        if(totem!=null) {
-            event.setCanceled(true);
-            entity.setHealth(1.0F);
-            entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,320,1));
-            entity.addEffect(new MobEffectInstance(MobEffects.JUMP,640,1));
-            entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,640,1));
-            entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,160,1));
+        LivingEntity entity = event.getEntity();
+        if (entity.level().isClientSide) {
+            ItemStack totem = currentCardboardTotem(entity);
+            if (!totem.isEmpty()) {
+                event.setCanceled(true);
+                entity.setHealth(1.0F);
+                entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 320, 1));
+                entity.addEffect(new MobEffectInstance(MobEffects.JUMP, 640, 1));
+                entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 640, 1));
+                entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 160, 1));
 
-            if(entity instanceof ServerPlayer serverPlayer) {
-                serverPlayer.connection.send(new ClientboundEntityEventPacket(serverPlayer, (byte) 35));
+                if (entity instanceof ServerPlayer serverPlayer) {
+                    serverPlayer.connection.send(new ClientboundEntityEventPacket(serverPlayer, (byte) 35));
+                }
+
+                InteractionHand hand = entity.getMainHandItem() == totem ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
+                entity.setItemInHand(hand, ItemStack.EMPTY);
             }
-
-            InteractionHand hand=entity.getMainHandItem()==totem?InteractionHand.MAIN_HAND:InteractionHand.OFF_HAND;
-            entity.setItemInHand(hand,ItemStack.EMPTY);
         }
     }
 
