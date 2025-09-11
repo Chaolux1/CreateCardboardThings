@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "create:cardboard_block"
+    }
+  ],
+  "results": [
+    {
+      "id": "createcardboardthings:cardboard_ingot"
+    }
+  ]
+}

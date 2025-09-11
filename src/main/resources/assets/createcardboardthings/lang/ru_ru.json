@@ -1,0 +1,23 @@
+{
+  "item.createcardboardthings.cardboard_pickaxe": "Картонная кирка",
+  "item.createcardboardthings.cardboard_shears": "Картонные ножницы",
+  "item.createcardboardthings.cardboard_arrow": "Картонная стрела",
+  "item.createcardboardthings.cardboard_elytra": "Картонные элитры",
+  "item.createcardboardthings.cardboard_ball": "Картонный шар",
+  "item.createcardboardthings.cardboard_ingot": "Картонный слиток",
+  "item.createcardboardthings.cardboard_rocket": "Картонный фейрверк",
+  "item.createcardboardthings.cardboard_saddle": "Кратонное седло",
+  "item.createcardboardthings.cardboard_totem": "Картонный тотем",
+
+  "entity.createcardboardthings.cardboard_arrow": "Картонная стрела",
+
+  "tooltip.createcardboardthings.cardboard_pickaxe": "Слабая, но неразрушимая",
+  "tooltip.createcardboardthings.cardboard_shears": "Никто не знает зачем оно есть... пока",
+  "tooltip.createcardboardthings.cardboard_arrow": "Никакого урона, но огромная отдача",
+  "tooltip.createcardboardthings.cardboard_elytra": "Летай вечно... но один раз",
+  "tooltip.createcardboardthings.cardboard_ball": "Бьёт больно и без отдачи",
+  "tooltip.createcardboardthings.cardboard_ingot": "Увеличивает отдачу у картонных предметов Create",
+  "tooltip.createcardboardthings.cardboard_rocket": "Только ускоряет элитры",
+  "tooltip.createcardboardthings.cardboard_saddle": "Загатовка для создания седла",
+  "tooltip.createcardboardthings.cardboard_totem": "Позволяет избежать смерти, а после этого убежать от проблем"
+}

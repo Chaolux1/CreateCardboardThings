@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "create:cardboard"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#X#",
+    "   ",
+    "   "
+  ],
+  "result": {
+    "id": "createcardboardthings:cardboard_elytra"
+  },
+  "show_notification": true
+}
