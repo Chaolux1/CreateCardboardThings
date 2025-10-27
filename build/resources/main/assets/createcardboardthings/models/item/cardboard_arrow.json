@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/arrow",
-  "textures": {
-    "layer0": "createcardboardthings:item/cardboard_arrow"
-  }
-}
