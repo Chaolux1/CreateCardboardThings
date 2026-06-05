@@ -68,6 +68,6 @@ public class CardboardElytraItem extends ElytraItem {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.createcardboardthings.cardboard_ball").withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable("tooltip.createcardboardthings.cardboard_elytra").withStyle(ChatFormatting.GRAY));
     }
 }
