@@ -8,8 +8,10 @@
   "item.createcardboardthings.cardboard_rocket": "Cardboard Rocket",
   "item.createcardboardthings.cardboard_saddle": "Cardboard Saddle",
   "item.createcardboardthings.cardboard_totem": "Cardboard Totem",
+  "item.createcardboardthings.cardboard_trident": "Cardboard Trident",
 
   "entity.createcardboardthings.cardboard_arrow": "Cardboard Arrow",
+  "entity.createcardboardthings.cardboard_trident": "Cardboard Trident",
 
   "tooltip.createcardboardthings.cardboard_pickaxe": "Weak but unbreakable",
   "tooltip.createcardboardthings.cardboard_shears": "No one knows why... yet",
@@ -19,5 +21,8 @@
   "tooltip.createcardboardthings.cardboard_ingot": "Boosts the knockback of Create’s Cardboard",
   "tooltip.createcardboardthings.cardboard_rocket": "Boots Elytra only",
   "tooltip.createcardboardthings.cardboard_saddle": "A base for future saddles",
-  "tooltip.createcardboardthings.cardboard_totem": "Saves you, then helps you run"
+  "tooltip.createcardboardthings.cardboard_totem": "Saves you, then helps you run",
+
+  "tooltip.createcardboardthings.cardboard_trident": "Made for the void. Keep it away from water and lava"
+
 }

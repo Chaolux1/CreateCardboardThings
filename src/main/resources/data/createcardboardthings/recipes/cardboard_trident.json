@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "create:cardboard"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "X X",
+    "X#X",
+    " # "
+  ],
+  "result": {
+    "item": "createcardboardthings:cardboard_trident"
+  },
+  "show_notification": true
+}

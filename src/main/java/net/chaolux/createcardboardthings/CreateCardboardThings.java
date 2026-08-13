@@ -4,7 +4,9 @@ import com.mojang.logging.LogUtils;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -68,6 +70,7 @@ public class CreateCardboardThings
             event.accept(ModItems.CARDBOARD_TOTEM);
             event.accept(ModItems.CARDBOARD_BALL);
             event.accept(ModItems.CARDBOARD_ROCKET);
+            event.accept(ModItems.CARDBOARD_TRIDENT);
         }
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
@@ -87,7 +90,9 @@ public class CreateCardboardThings
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+//            event.enqueueWork(() -> {
+//                ItemProperties.register(ModItems.CARDBOARD_TRIDENT.get(),new ResourceLocation(MOD_ID,"throwing"),(itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0f : 0.0f);
+//            });
         }
     }
 }
