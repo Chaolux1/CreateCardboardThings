@@ -24,6 +24,7 @@ public class ModItems {
     public static final RegistryObject<Item> CARDBOARD_SADDLE;
     public static final RegistryObject<Item> CARDBOARD_TOTEM;
     public static final RegistryObject<Item> CARDBOARD_TRIDENT;
+    public static final RegistryObject<Item> CARDBOARD_BUCKET;
 
     public static RegistryObject<Item> registerWithTab(String name, Supplier<Item> supplier) {
         return ITEMS.register(name, supplier);
@@ -45,7 +46,8 @@ public class ModItems {
         CARDBOARD_ROCKET = registerWithTab("cardboard_rocket", () -> new CardboardRocketItem(basicItem()));
         CARDBOARD_SADDLE = registerWithTab("cardboard_saddle", () -> new CardboardSaddleItem(basicItem().stacksTo(1)));
         CARDBOARD_TOTEM = registerWithTab("cardboard_totem", () -> new CardboardTotemItem(basicItem().stacksTo(1)));
-        CARDBOARD_TRIDENT = registerWithTab("cardboard_trident", () -> new CardboardTridentItem(basicItem().stacksTo(1).durability(250)));
+        CARDBOARD_TRIDENT = registerWithTab("cardboard_trident", () -> new CardboardTridentItem(basicItem().stacksTo(1).durability(64)));
+        CARDBOARD_BUCKET = registerWithTab("cardboard_bucket", () -> new CardboardBucketItem(basicItem().stacksTo(1)));
 
     }
 }

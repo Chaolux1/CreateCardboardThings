@@ -63,6 +63,7 @@ public class CreateCardboardThings
             event.accept(ModItems.CARDBOARD_PICKAXE);
             event.accept(ModItems.CARDBOARD_SHEARS);
             event.accept(ModItems.CARDBOARD_SADDLE);
+            event.accept(ModItems.CARDBOARD_BUCKET);
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
@@ -90,9 +91,7 @@ public class CreateCardboardThings
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-//            event.enqueueWork(() -> {
-//                ItemProperties.register(ModItems.CARDBOARD_TRIDENT.get(),new ResourceLocation(MOD_ID,"throwing"),(itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0f : 0.0f);
-//            });
+
         }
     }
 }

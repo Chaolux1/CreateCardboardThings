@@ -9,6 +9,7 @@
   "item.createcardboardthings.cardboard_saddle": "Cardboard Saddle",
   "item.createcardboardthings.cardboard_totem": "Cardboard Totem",
   "item.createcardboardthings.cardboard_trident": "Cardboard Trident",
+  "item.createcardboardthings.cardboard_bucket": "Cardboard Bucket",
 
   "entity.createcardboardthings.cardboard_arrow": "Cardboard Arrow",
   "entity.createcardboardthings.cardboard_trident": "Cardboard Trident",
@@ -23,6 +24,7 @@
   "tooltip.createcardboardthings.cardboard_saddle": "A base for future saddles",
   "tooltip.createcardboardthings.cardboard_totem": "Saves you, then helps you run",
 
-  "tooltip.createcardboardthings.cardboard_trident": "Made for the void. Keep it away from water and lava"
+  "tooltip.createcardboardthings.cardboard_trident": "Made for the void. Keep it away from water and lava",
+  "tooltip.createcardboardthings.cardboard_bucket": "Drains source fluids but they always leak onto you"
 
 }

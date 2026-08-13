@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "create:cardboard"
+    }
+  },
+  "pattern": [
+    "X X",
+    " X "
+  ],
+  "result": {
+    "item": "createcardboardthings:cardboard_bucket"
+  },
+  "show_notification": true
+}
