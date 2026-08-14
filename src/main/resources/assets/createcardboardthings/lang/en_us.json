@@ -10,6 +10,7 @@
   "item.createcardboardthings.cardboard_totem": "Cardboard Totem",
   "item.createcardboardthings.cardboard_trident": "Cardboard Trident",
   "item.createcardboardthings.cardboard_bucket": "Cardboard Bucket",
+  "item.createcardboardthings.cardboard_shield": "Cardboard Shield",
 
   "entity.createcardboardthings.cardboard_arrow": "Cardboard Arrow",
   "entity.createcardboardthings.cardboard_trident": "Cardboard Trident",
@@ -25,6 +26,7 @@
   "tooltip.createcardboardthings.cardboard_totem": "Saves you, then helps you run",
 
   "tooltip.createcardboardthings.cardboard_trident": "Made for the void. Keep it away from water and lava",
-  "tooltip.createcardboardthings.cardboard_bucket": "Drains source fluids but they always leak onto you"
+  "tooltip.createcardboardthings.cardboard_bucket": "Drains source fluids but they always leak onto you",
+  "tooltip.createcardboardthings.cardboard_shield": "Returns projectiles to sender. Melee goes right through"
 
 }

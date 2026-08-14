@@ -8,13 +8,15 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 import java.util.Map;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber(modid = "createcardboardthings", bus= Bus.FORGE)
 public class CardboardItemEvents {
     @SubscribeEvent
     public static void onAnvilUpdate(AnvilUpdateEvent event) {

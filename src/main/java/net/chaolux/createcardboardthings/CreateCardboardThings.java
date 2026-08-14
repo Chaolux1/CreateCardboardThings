@@ -72,6 +72,7 @@ public class CreateCardboardThings
             event.accept(ModItems.CARDBOARD_BALL);
             event.accept(ModItems.CARDBOARD_ROCKET);
             event.accept(ModItems.CARDBOARD_TRIDENT);
+            event.accept(ModItems.CARDBOARD_SHIELD);
         }
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
@@ -91,7 +92,9 @@ public class CreateCardboardThings
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            event.enqueueWork(() -> {
+               ItemProperties.register(ModItems.CARDBOARD_SHIELD.get(),new ResourceLocation("minecraft","blocking"),((itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0f : 0.0f));
+            });
         }
     }
 }
