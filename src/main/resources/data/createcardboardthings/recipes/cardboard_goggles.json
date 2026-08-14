@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "create:cardboard"
+    },
+    "#": {
+      "tag": "forge:glass"
+    },
+    "S": {
+      "tag": "forge:string"
+    }
+  },
+  "pattern": [
+    " S ",
+    "#X#"
+  ],
+  "result": {
+    "item": "createcardboardthings:cardboard_goggles"
+  },
+  "show_notification": true
+}

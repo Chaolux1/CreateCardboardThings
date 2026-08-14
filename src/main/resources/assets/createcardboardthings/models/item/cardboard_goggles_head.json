@@ -1,0 +1,9 @@
+{
+  "parent": "create:block/goggles",
+  "textures": {
+    "0": "create:block/cardboard_block_side",
+    "1": "minecraft:block/black_stained_glass",
+    "2": "createcardboardthings:item/cardboard_goggles_model",
+    "particle": "create:block/cardboard_block_side"
+  }
+}

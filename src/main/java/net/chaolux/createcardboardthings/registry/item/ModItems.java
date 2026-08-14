@@ -28,6 +28,7 @@ public class ModItems {
     public static final RegistryObject<Item> CARDBOARD_BUCKET;
     public static final RegistryObject<Item> CARDBOARD_SHIELD;
     public static final RegistryObject<Item> CARDBOARD_TNT;
+    public static final RegistryObject<Item> CARDBOARD_GOGGLES;
 
     public static RegistryObject<Item> registerWithTab(String name, Supplier<Item> supplier) {
         return ITEMS.register(name, supplier);
@@ -53,6 +54,6 @@ public class ModItems {
         CARDBOARD_BUCKET = registerWithTab("cardboard_bucket", () -> new CardboardBucketItem(basicItem().stacksTo(1)));
         CARDBOARD_SHIELD = registerWithTab("cardboard_shield", () -> new CardboardShieldItem(basicItem().stacksTo(1).durability(124)));
         CARDBOARD_TNT = registerWithTab("cardboard_tnt", () -> new CardboardTntItem(ModBlocks.CARDBOARD_TNT.get(),basicItem()));
-
+        CARDBOARD_GOGGLES = registerWithTab("cardboard_goggles", () -> new CardboardGogglesItem(basicItem().stacksTo(1)));
     }
 }

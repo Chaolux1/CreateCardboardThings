@@ -66,6 +66,7 @@ public class CreateCardboardThings
             event.accept(ModItems.CARDBOARD_SHEARS);
             event.accept(ModItems.CARDBOARD_SADDLE);
             event.accept(ModItems.CARDBOARD_BUCKET);
+            event.accept(ModItems.CARDBOARD_GOGGLES);
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
