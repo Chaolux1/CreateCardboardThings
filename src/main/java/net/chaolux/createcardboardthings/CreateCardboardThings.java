@@ -1,6 +1,7 @@
 package net.chaolux.createcardboardthings;
 
 import com.mojang.logging.LogUtils;
+import net.chaolux.createcardboardthings.registry.block.ModBlocks;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.client.Minecraft;
@@ -43,6 +44,7 @@ public class CreateCardboardThings
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
@@ -77,6 +79,10 @@ public class CreateCardboardThings
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.CARDBOARD_INGOT);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(ModItems.CARDBOARD_TNT);
         }
     }
 

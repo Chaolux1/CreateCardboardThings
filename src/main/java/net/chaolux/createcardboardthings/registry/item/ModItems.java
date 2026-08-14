@@ -2,6 +2,7 @@ package net.chaolux.createcardboardthings.registry.item;
 
 import net.chaolux.createcardboardthings.common.item.*;
 import net.chaolux.createcardboardthings.common.item.tier.CardboardTier;
+import net.chaolux.createcardboardthings.registry.block.ModBlocks;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -26,6 +27,7 @@ public class ModItems {
     public static final RegistryObject<Item> CARDBOARD_TRIDENT;
     public static final RegistryObject<Item> CARDBOARD_BUCKET;
     public static final RegistryObject<Item> CARDBOARD_SHIELD;
+    public static final RegistryObject<Item> CARDBOARD_TNT;
 
     public static RegistryObject<Item> registerWithTab(String name, Supplier<Item> supplier) {
         return ITEMS.register(name, supplier);
@@ -50,5 +52,7 @@ public class ModItems {
         CARDBOARD_TRIDENT = registerWithTab("cardboard_trident", () -> new CardboardTridentItem(basicItem().stacksTo(1).durability(64)));
         CARDBOARD_BUCKET = registerWithTab("cardboard_bucket", () -> new CardboardBucketItem(basicItem().stacksTo(1)));
         CARDBOARD_SHIELD = registerWithTab("cardboard_shield", () -> new CardboardShieldItem(basicItem().stacksTo(1).durability(124)));
+        CARDBOARD_TNT = registerWithTab("cardboard_tnt", () -> new CardboardTntItem(ModBlocks.CARDBOARD_TNT.get(),basicItem()));
+
     }
 }

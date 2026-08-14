@@ -12,8 +12,11 @@
   "item.createcardboardthings.cardboard_bucket": "Cardboard Bucket",
   "item.createcardboardthings.cardboard_shield": "Cardboard Shield",
 
+  "block.createcardboardthings.cardboard_tnt": "Cardboard TNT",
+
   "entity.createcardboardthings.cardboard_arrow": "Cardboard Arrow",
   "entity.createcardboardthings.cardboard_trident": "Cardboard Trident",
+  "entity.createcardboardthings.cardboard_tnt": "Cardboard TNT",
 
   "tooltip.createcardboardthings.cardboard_pickaxe": "Weak but unbreakable",
   "tooltip.createcardboardthings.cardboard_shears": "No one knows why... yet",
@@ -27,6 +30,6 @@
 
   "tooltip.createcardboardthings.cardboard_trident": "Made for the void. Keep it away from water and lava",
   "tooltip.createcardboardthings.cardboard_bucket": "Drains source fluids but they always leak onto you",
-  "tooltip.createcardboardthings.cardboard_shield": "Returns projectiles to sender. Melee goes right through"
-
+  "tooltip.createcardboardthings.cardboard_shield": "Returns projectiles to sender. Melee goes right through",
+  "tooltip.createcardboardthings.cardboard_tnt": "All flash"
 }

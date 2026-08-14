@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "create:cardboard"
+    },
+    "#": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    "#X#",
+    "X#X",
+    "#X#"
+  ],
+  "result": {
+    "item": "createcardboardthings:cardboard_tnt"
+  },
+  "show_notification": true
+}
