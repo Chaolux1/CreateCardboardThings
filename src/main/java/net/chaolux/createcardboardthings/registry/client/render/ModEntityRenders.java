@@ -23,6 +23,7 @@ public class ModEntityRenders {
         event.registerEntityRenderer(ModEntities.CARDBOARD_BALL.get(), CardboardBallRenderer::new);
         event.registerEntityRenderer(ModEntities.CARDBOARD_TRIDENT.get(), CardboardTridentRenderer::new);
         event.registerEntityRenderer(ModEntities.CARDBOARD_TNT.get(), CardboardTntRenderer::new);
+        event.registerEntityRenderer(ModEntities.CARDBOARD_MARKER.get(), CardboardMarkerRenderer::new);
     }
 
     @SubscribeEvent

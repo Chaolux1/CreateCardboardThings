@@ -17,12 +17,16 @@ public class ModClientModels {
     public static final ResourceLocation CARDBOARD_SHIELD_ITEM;
     public static final ResourceLocation CARDBOARD_GOGGLES_ITEM;
     public static final ResourceLocation CARDBOARD_GOGGLES_HEAD;
+    public static final ResourceLocation CARDBOARD_MARKER_BUTTON;
+    public static final ResourceLocation CARDBOARD_MARKER_LEVER;
 
     static {
         CARDBOARD_TRIDENT_ITEM=new ResourceLocation(CreateCardboardThings.MOD_ID,"item/cardboard_trident_item");
         CARDBOARD_SHIELD_ITEM=new ResourceLocation(CreateCardboardThings.MOD_ID,"item/cardboard_shield_item");
         CARDBOARD_GOGGLES_ITEM=new ModelResourceLocation(new ResourceLocation(CreateCardboardThings.MOD_ID,"cardboard_goggles"),"inventory");
         CARDBOARD_GOGGLES_HEAD=new ResourceLocation(CreateCardboardThings.MOD_ID,"item/cardboard_goggles_head");
+        CARDBOARD_MARKER_BUTTON=new ResourceLocation(CreateCardboardThings.MOD_ID,"block/cardboard_marker_button");
+        CARDBOARD_MARKER_LEVER=new ResourceLocation(CreateCardboardThings.MOD_ID,"block/cardboard_marker_lever");
     }
 
     @SubscribeEvent
@@ -30,6 +34,8 @@ public class ModClientModels {
         registerAdditional.register(CARDBOARD_TRIDENT_ITEM);
         registerAdditional.register(CARDBOARD_SHIELD_ITEM);
         registerAdditional.register(CARDBOARD_GOGGLES_HEAD);
+        registerAdditional.register(CARDBOARD_MARKER_BUTTON);
+        registerAdditional.register(CARDBOARD_MARKER_LEVER);
     }
 
     @SubscribeEvent

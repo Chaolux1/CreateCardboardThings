@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public class ModItems {
@@ -29,6 +30,25 @@ public class ModItems {
     public static final RegistryObject<Item> CARDBOARD_SHIELD;
     public static final RegistryObject<Item> CARDBOARD_TNT;
     public static final RegistryObject<Item> CARDBOARD_GOGGLES;
+
+    public static final RegistryObject<Item> WHITE_CARDBOARD;
+    public static final RegistryObject<Item> ORANGE_CARDBOARD;
+    public static final RegistryObject<Item> MAGENTA_CARDBOARD;
+    public static final RegistryObject<Item> LIGHT_BLUE_CARDBOARD;
+    public static final RegistryObject<Item> YELLOW_CARDBOARD;
+    public static final RegistryObject<Item> LIME_CARDBOARD;
+    public static final RegistryObject<Item> PINK_CARDBOARD;
+    public static final RegistryObject<Item> GRAY_CARDBOARD;
+    public static final RegistryObject<Item> LIGHT_GRAY_CARDBOARD;
+    public static final RegistryObject<Item> CYAN_CARDBOARD;
+    public static final RegistryObject<Item> PURPLE_CARDBOARD;
+    public static final RegistryObject<Item> BLUE_CARDBOARD;
+    public static final RegistryObject<Item> BROWN_CARDBOARD;
+    public static final RegistryObject<Item> GREEN_CARDBOARD;
+    public static final RegistryObject<Item> RED_CARDBOARD;
+    public static final RegistryObject<Item> BLACK_CARDBOARD;
+    public static final List<RegistryObject<Item>> COLOR_CARDBOARD;
+
 
     public static RegistryObject<Item> registerWithTab(String name, Supplier<Item> supplier) {
         return ITEMS.register(name, supplier);
@@ -55,5 +75,47 @@ public class ModItems {
         CARDBOARD_SHIELD = registerWithTab("cardboard_shield", () -> new CardboardShieldItem(basicItem().stacksTo(1).durability(124)));
         CARDBOARD_TNT = registerWithTab("cardboard_tnt", () -> new CardboardTntItem(ModBlocks.CARDBOARD_TNT.get(),basicItem()));
         CARDBOARD_GOGGLES = registerWithTab("cardboard_goggles", () -> new CardboardGogglesItem(basicItem().stacksTo(1)));
+        WHITE_CARDBOARD = registerColorCardboard("white_cardboard",DyeColor.WHITE);
+        ORANGE_CARDBOARD = registerColorCardboard("orange_cardboard",DyeColor.ORANGE);
+        MAGENTA_CARDBOARD = registerColorCardboard("magenta_cardboard",DyeColor.MAGENTA);
+        LIGHT_BLUE_CARDBOARD = registerColorCardboard("light_blue_cardboard",DyeColor.LIGHT_BLUE);
+        YELLOW_CARDBOARD = registerColorCardboard("yellow_cardboard",DyeColor.YELLOW);
+        LIME_CARDBOARD = registerColorCardboard("lime_cardboard",DyeColor.LIME);
+        PINK_CARDBOARD = registerColorCardboard("pink_cardboard",DyeColor.PINK);
+        GRAY_CARDBOARD = registerColorCardboard("gray_cardboard",DyeColor.GRAY);
+        LIGHT_GRAY_CARDBOARD = registerColorCardboard("light_gray_cardboard",DyeColor.LIGHT_GRAY);
+        CYAN_CARDBOARD = registerColorCardboard("cyan_cardboard",DyeColor.CYAN);
+        PURPLE_CARDBOARD = registerColorCardboard("purple_cardboard",DyeColor.PURPLE);
+        BLUE_CARDBOARD = registerColorCardboard("blue_cardboard",DyeColor.BLUE);
+        BROWN_CARDBOARD = registerColorCardboard("brown_cardboard",DyeColor.BROWN);
+        GREEN_CARDBOARD = registerColorCardboard("green_cardboard",DyeColor.GREEN);
+        RED_CARDBOARD = registerColorCardboard("red_cardboard",DyeColor.RED);
+        BLACK_CARDBOARD = registerColorCardboard("black_cardboard",DyeColor.BLACK);
+        COLOR_CARDBOARD=List.of(WHITE_CARDBOARD,ORANGE_CARDBOARD,MAGENTA_CARDBOARD,LIGHT_BLUE_CARDBOARD,YELLOW_CARDBOARD,LIME_CARDBOARD,PINK_CARDBOARD,GRAY_CARDBOARD,LIGHT_GRAY_CARDBOARD,CYAN_CARDBOARD,PURPLE_CARDBOARD,BLUE_CARDBOARD,BROWN_CARDBOARD,GREEN_CARDBOARD,RED_CARDBOARD,BLACK_CARDBOARD);
+    }
+
+    private static RegistryObject<Item> registerColorCardboard(String string,DyeColor dyeColor) {
+        return registerWithTab(string,() -> new ColorCardboardItem(dyeColor,basicItem()));
+    }
+
+    public static Item getColorCardboard(DyeColor dyeColor) {
+        return switch (dyeColor) {
+            case WHITE -> WHITE_CARDBOARD.get();
+            case ORANGE -> ORANGE_CARDBOARD.get();
+            case MAGENTA -> MAGENTA_CARDBOARD.get();
+            case LIGHT_BLUE -> LIGHT_BLUE_CARDBOARD.get();
+            case YELLOW -> YELLOW_CARDBOARD.get();
+            case LIME -> LIME_CARDBOARD.get();
+            case PINK -> PINK_CARDBOARD.get();
+            case GRAY -> GRAY_CARDBOARD.get();
+            case LIGHT_GRAY -> LIGHT_GRAY_CARDBOARD.get();
+            case CYAN -> CYAN_CARDBOARD.get();
+            case PURPLE -> PURPLE_CARDBOARD.get();
+            case BLUE -> BLUE_CARDBOARD.get();
+            case BROWN -> BROWN_CARDBOARD.get();
+            case GREEN -> GREEN_CARDBOARD.get();
+            case RED -> RED_CARDBOARD.get();
+            case BLACK -> BLACK_CARDBOARD.get();
+        };
     }
 }

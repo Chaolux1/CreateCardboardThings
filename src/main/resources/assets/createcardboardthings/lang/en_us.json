@@ -12,6 +12,22 @@
   "item.createcardboardthings.cardboard_bucket": "Cardboard Bucket",
   "item.createcardboardthings.cardboard_shield": "Cardboard Shield",
   "item.createcardboardthings.cardboard_goggles": "Cardboard Goggles",
+  "item.createcardboardthings.white_cardboard": "White Cardboard",
+  "item.createcardboardthings.orange_cardboard": "Orange Cardboard",
+  "item.createcardboardthings.magenta_cardboard": "Magenta Cardboard",
+  "item.createcardboardthings.light_blue_cardboard": "Light Blue Cardboard",
+  "item.createcardboardthings.yellow_cardboard": "Yellow Cardboard",
+  "item.createcardboardthings.lime_cardboard": "Lime Cardboard",
+  "item.createcardboardthings.pink_cardboard": "Pink Cardboard",
+  "item.createcardboardthings.gray_cardboard": "Gray Cardboard",
+  "item.createcardboardthings.light_gray_cardboard": "Light Gray Cardboard",
+  "item.createcardboardthings.cyan_cardboard": "Cyan Cardboard",
+  "item.createcardboardthings.purple_cardboard": "Purple Cardboard",
+  "item.createcardboardthings.blue_cardboard": "Blue Cardboard",
+  "item.createcardboardthings.brown_cardboard": "Brown Cardboard",
+  "item.createcardboardthings.green_cardboard": "Green Cardboard",
+  "item.createcardboardthings.red_cardboard": "Red Cardboard",
+  "item.createcardboardthings.black_cardboard": "Black Cardboard",
 
   "block.createcardboardthings.cardboard_tnt": "Cardboard TNT",
 
@@ -20,7 +36,7 @@
   "entity.createcardboardthings.cardboard_tnt": "Cardboard TNT",
 
   "tooltip.createcardboardthings.cardboard_pickaxe": "Weak but unbreakable",
-  "tooltip.createcardboardthings.cardboard_shears": "No one knows why... yet",
+  "tooltip.createcardboardthings.cardboard_shears": "Mystery solved. Peels the color off",
   "tooltip.createcardboardthings.cardboard_arrow": "No damage, big knockback",
   "tooltip.createcardboardthings.cardboard_elytra": "Fly forever... once",
   "tooltip.createcardboardthings.cardboard_ball": "Hits hard, doesn’t push",
@@ -33,5 +49,7 @@
   "tooltip.createcardboardthings.cardboard_bucket": "Drains source fluids but they always leak onto you",
   "tooltip.createcardboardthings.cardboard_shield": "Returns projectiles to sender. Melee goes right through",
   "tooltip.createcardboardthings.cardboard_tnt": "All flash",
-  "tooltip.createcardboardthings.cardboard_goggles": "A look that blows everyone away"
+  "tooltip.createcardboardthings.cardboard_goggles": "A look that blows everyone away",
+  "tooltip.createcardboardthings.color_cardboard": "Color code a chaos. Try it on a lever or button"
+
 }

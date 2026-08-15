@@ -80,6 +80,22 @@ public class CreateCardboardThings
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.CARDBOARD_INGOT);
+            event.accept(ModItems.WHITE_CARDBOARD);
+            event.accept(ModItems.ORANGE_CARDBOARD);
+            event.accept(ModItems.MAGENTA_CARDBOARD);
+            event.accept(ModItems.LIGHT_BLUE_CARDBOARD);
+            event.accept(ModItems.YELLOW_CARDBOARD);
+            event.accept(ModItems.LIME_CARDBOARD);
+            event.accept(ModItems.PINK_CARDBOARD);
+            event.accept(ModItems.GRAY_CARDBOARD);
+            event.accept(ModItems.LIGHT_GRAY_CARDBOARD);
+            event.accept(ModItems.CYAN_CARDBOARD);
+            event.accept(ModItems.PURPLE_CARDBOARD);
+            event.accept(ModItems.BLUE_CARDBOARD);
+            event.accept(ModItems.BROWN_CARDBOARD);
+            event.accept(ModItems.GREEN_CARDBOARD);
+            event.accept(ModItems.RED_CARDBOARD);
+            event.accept(ModItems.BLACK_CARDBOARD);
         }
 
         if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
