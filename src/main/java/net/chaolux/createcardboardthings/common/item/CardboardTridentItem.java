@@ -1,5 +1,7 @@
 package net.chaolux.createcardboardthings.common.item;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.chaolux.createcardboardthings.client.render.CardboardTridentItemRenderer;
 import net.chaolux.createcardboardthings.client.render.CardboardTridentRenderer;
 import net.chaolux.createcardboardthings.common.entity.CardboardTridentEntity;
@@ -15,8 +17,12 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -87,6 +93,17 @@ public class CardboardTridentItem extends TridentItem {
                 return CardboardTridentItemRenderer.getInstance();
             }
         });
+    }
+
+    @Override
+    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot equipmentSlot) {
+        if(equipmentSlot == EquipmentSlot.MAINHAND) {
+            ImmutableMultimap.Builder<Attribute,AttributeModifier> attributeAttributeModifierBuilder=ImmutableMultimap.builder();
+            attributeAttributeModifierBuilder.put(Attributes.ATTACK_DAMAGE,new AttributeModifier(BASE_ATTACK_DAMAGE_UUID,"TridentModifier",0.0,AttributeModifier.Operation.ADDITION));
+            attributeAttributeModifierBuilder.put(Attributes.ATTACK_SPEED,new AttributeModifier(BASE_ATTACK_SPEED_UUID,"TridentModifier",-2.9,AttributeModifier.Operation.ADDITION));
+            return attributeAttributeModifierBuilder.build();
+        }
+        return super.getDefaultAttributeModifiers(equipmentSlot);
     }
 
     private static void throwTrident(Level level,Player player,ItemStack itemStack,LivingEntity livingEntity) {

@@ -48,6 +48,7 @@ public class ModItems {
     public static final RegistryObject<Item> RED_CARDBOARD;
     public static final RegistryObject<Item> BLACK_CARDBOARD;
     public static final List<RegistryObject<Item>> COLOR_CARDBOARD;
+    public static final RegistryObject<Item> CARDBOARD_JUKEBOX;
 
 
     public static RegistryObject<Item> registerWithTab(String name, Supplier<Item> supplier) {
@@ -92,6 +93,8 @@ public class ModItems {
         RED_CARDBOARD = registerColorCardboard("red_cardboard",DyeColor.RED);
         BLACK_CARDBOARD = registerColorCardboard("black_cardboard",DyeColor.BLACK);
         COLOR_CARDBOARD=List.of(WHITE_CARDBOARD,ORANGE_CARDBOARD,MAGENTA_CARDBOARD,LIGHT_BLUE_CARDBOARD,YELLOW_CARDBOARD,LIME_CARDBOARD,PINK_CARDBOARD,GRAY_CARDBOARD,LIGHT_GRAY_CARDBOARD,CYAN_CARDBOARD,PURPLE_CARDBOARD,BLUE_CARDBOARD,BROWN_CARDBOARD,GREEN_CARDBOARD,RED_CARDBOARD,BLACK_CARDBOARD);
+        CARDBOARD_JUKEBOX = registerWithTab("cardboard_jukebox", () -> new CardboardJukeboxItem(ModBlocks.CARDBOARD_JUKEBOX.get(),basicItem()));
+
     }
 
     private static RegistryObject<Item> registerColorCardboard(String string,DyeColor dyeColor) {

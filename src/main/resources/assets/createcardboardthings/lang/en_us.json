@@ -30,6 +30,7 @@
   "item.createcardboardthings.black_cardboard": "Black Cardboard",
 
   "block.createcardboardthings.cardboard_tnt": "Cardboard TNT",
+  "block.createcardboardthings.cardboard_jukebox": "Cardboard Jukebox",
 
   "entity.createcardboardthings.cardboard_arrow": "Cardboard Arrow",
   "entity.createcardboardthings.cardboard_trident": "Cardboard Trident",
@@ -50,6 +51,7 @@
   "tooltip.createcardboardthings.cardboard_shield": "Returns projectiles to sender. Melee goes right through",
   "tooltip.createcardboardthings.cardboard_tnt": "All flash",
   "tooltip.createcardboardthings.cardboard_goggles": "A look that blows everyone away",
-  "tooltip.createcardboardthings.color_cardboard": "Color code a chaos. Try it on a lever or button"
+  "tooltip.createcardboardthings.color_cardboard": "Color code a chaos. Try it on a lever or button",
+  "tooltip.createcardboardthings.cardboard_jukebox": "Compressed. Physically"
 
 }

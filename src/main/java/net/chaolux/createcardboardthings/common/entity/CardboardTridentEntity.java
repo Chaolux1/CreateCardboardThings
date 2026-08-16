@@ -97,7 +97,7 @@ public class CardboardTridentEntity extends AbstractArrow {
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity entity=entityHitResult.getEntity();
-        float damage=8.0f;
+        float damage=1.0f;
         if(entity instanceof LivingEntity livingEntity) damage += EnchantmentHelper.getDamageBonus(this.itemStack,livingEntity.getMobType());
         Entity owner=this.getOwner();
         Entity damageOwner=owner == null ? this : owner;

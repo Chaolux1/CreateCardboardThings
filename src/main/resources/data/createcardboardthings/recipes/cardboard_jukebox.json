@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "create:cardboard"
+    },
+    "#": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "result": {
+    "item": "createcardboardthings:cardboard_jukebox"
+  },
+  "show_notification": true
+}
