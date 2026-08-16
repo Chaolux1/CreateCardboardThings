@@ -1,6 +1,7 @@
 package net.chaolux.createcardboardthings.client.sound;
 
 import com.mojang.logging.LogUtils;
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.common.entity.CardboardJukeboxBlockEntity;
 import net.chaolux.createcardboardthings.registry.block.ModBlocks;
 import net.minecraft.client.Minecraft;
@@ -29,6 +30,7 @@ public class CardboardJukeboxEvents {
     private static final Map<BlockPos,CardboardSoundInstance> MAP=new HashMap<>();
     @SubscribeEvent
     public static void onPlaySound(PlaySoundEvent playSoundEvent) {
+        if(!Config.cardboardJukebox()) return;
         SoundInstance soundInstance=playSoundEvent.getOriginalSound();
         if(soundInstance instanceof CardboardSoundInstance) return;
         if(soundInstance.getSource() != SoundSource.RECORDS) return;

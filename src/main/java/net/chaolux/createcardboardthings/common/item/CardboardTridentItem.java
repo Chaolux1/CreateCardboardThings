@@ -2,6 +2,7 @@ package net.chaolux.createcardboardthings.common.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.client.render.CardboardTridentItemRenderer;
 import net.chaolux.createcardboardthings.client.render.CardboardTridentRenderer;
 import net.chaolux.createcardboardthings.common.entity.CardboardTridentEntity;
@@ -48,6 +49,7 @@ public class CardboardTridentItem extends TridentItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemStack=player.getItemInHand(interactionHand);
+        if(!Config.cardboardTrident()) return InteractionResultHolder.pass(itemStack);
         if(isDestroyFluid(player)) {
             destroyTrident(level,player,itemStack);
             player.awardStat(Stats.ITEM_USED.get(this));
@@ -61,6 +63,7 @@ public class CardboardTridentItem extends TridentItem {
 
     @Override
     public void releaseUsing(ItemStack itemStack, Level level, LivingEntity livingEntity,int tick) {
+        if(!Config.cardboardTrident()) return;
         if(!(livingEntity instanceof Player player)) return;
         int usedTick=this.getUseDuration(itemStack) - tick;
         if(usedTick < TICK) return;

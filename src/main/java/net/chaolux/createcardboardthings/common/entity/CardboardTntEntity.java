@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.entity;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.block.ModBlocks;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.minecraft.core.BlockPos;
@@ -53,6 +54,7 @@ public class CardboardTntEntity extends PrimedTnt {
 
     @Override
     protected void explode() {
+        if(!Config.cardboardTnt()) return;
         if(!(this.level() instanceof ServerLevel serverLevel)) return;
         explosionEffects(serverLevel);
         apply(serverLevel);

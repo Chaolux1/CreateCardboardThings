@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.event;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.EnchantedBookItem;
@@ -20,9 +21,9 @@ import java.util.Map;
 public class CardboardItemEvents {
     @SubscribeEvent
     public static void onAnvilUpdate(AnvilUpdateEvent event) {
+        if(!Config.cardboardIngot()) return;
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();
-
         if (left.getItem().builtInRegistryHolder().key().location().equals(new ResourceLocation("create", "cardboard_sword")) && right.getItem() == ModItems.CARDBOARD_INGOT.get()) {
             ItemStack output = left.copy();
             Map<Enchantment, Integer> ench = EnchantmentHelper.getEnchantments(output);
@@ -31,6 +32,7 @@ public class CardboardItemEvents {
             EnchantmentHelper.setEnchantments(ench, output);
             event.setOutput(output);
             event.setCost(10);
+            event.setMaterialCost(1);
         }
     }
 }

@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.event;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.protocol.game.ClientboundEntityEventPacket;
@@ -23,11 +24,11 @@ import org.jetbrains.annotations.Nullable;
 public class CardboardTotemEvents {
     private static final double FORCE=2.6;
     private static final double UP_FORCE=0.85;
-    private static final double PANIC=1.75;
     private static final int DURATION=20*10;
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
+        if(!Config.cardboardTotem()) return;
         LivingEntity livingEntity=event.getEntity();
         if(livingEntity.level().isClientSide) return;
         InteractionHand interactionHand=currentCardboardTotem(livingEntity);

@@ -2,6 +2,7 @@ package net.chaolux.createcardboardthings.common.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.chaolux.createcardboardthings.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -28,7 +29,7 @@ public class CardboardPickaxeItem extends PickaxeItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
         Multimap<Attribute, AttributeModifier> modifiers = super.getDefaultAttributeModifiers(slot);
-
+        if(!Config.cardboardPickaxe()) return modifiers;
         if(slot == EquipmentSlot.MAINHAND) {
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
             builder.putAll(modifiers);

@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.event;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.common.entity.CardboardMarkerEntity;
 import net.chaolux.createcardboardthings.common.item.ColorCardboardItem;
 import net.chaolux.createcardboardthings.common.utility.CardboardMarkerUtils;
@@ -29,11 +30,12 @@ public class CardboardMarkerEvents {
         if(!CardboardMarkerUtils.isMark(blockState)) return;
         ItemStack itemStack=rightClickBlock.getItemStack();
         if(itemStack.getItem() instanceof ColorCardboardItem colorCardboardItem) {
+            DyeColor dyeColor=colorCardboardItem.getDyeColor();
+            if(!Config.colorCardboard(dyeColor)) return;
             rightClickBlock.setCanceled(true);
             rightClickBlock.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
             if(level.isClientSide) return;
             Player player=rightClickBlock.getEntity();
-            DyeColor dyeColor=colorCardboardItem.getDyeColor();
             CardboardMarkerEntity cardboardMarkerEntity=CardboardMarkerUtils.findMark(level,blockPos);
             if(cardboardMarkerEntity != null && cardboardMarkerEntity.getDyeColor() == dyeColor) return;
             if(cardboardMarkerEntity == null) {
@@ -47,6 +49,7 @@ public class CardboardMarkerEvents {
             return;
         }
         if(!itemStack.is(ModItems.CARDBOARD_SHEARS.get())) return;
+        if(!Config.cardboardShears()) return;
         CardboardMarkerEntity cardboardMarkerEntity=CardboardMarkerUtils.findMark(level,blockPos);
         if(cardboardMarkerEntity == null) return;
         rightClickBlock.setCanceled(true);

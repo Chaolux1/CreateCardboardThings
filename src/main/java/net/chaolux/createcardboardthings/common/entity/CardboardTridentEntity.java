@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.entity;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.core.BlockPos;
@@ -63,6 +64,10 @@ public class CardboardTridentEntity extends AbstractArrow {
 
     @Override
     public void tick() {
+        if(!Config.cardboardTrident()) {
+            this.discard();
+            return;
+        }
         if(touchFluid()) {
             destroyFluid();
             return;

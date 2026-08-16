@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.item;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -29,7 +30,7 @@ public class CardboardElytraItem extends ElytraItem {
 
     @Override
     public boolean canElytraFly(ItemStack stack, LivingEntity entity) {
-        return true;
+        return Config.cardboardElytra();
     }
 
     @Override
@@ -49,6 +50,7 @@ public class CardboardElytraItem extends ElytraItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        if(!Config.cardboardElytra()) return;
         if (!(entity instanceof Player player)) return;
         if (level.isClientSide) return;
             ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);

@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.entity;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.network.FriendlyByteBuf;
@@ -42,6 +43,7 @@ public class CardboardArrowEntity extends AbstractArrow {
 
     @Override
     protected void onHitEntity(EntityHitResult hitResult) {
+        if(!Config.cardboardArrow()) return;
         if(!this.level().isClientSide()) {
             if(hitResult.getEntity() instanceof LivingEntity target) {
                 var knockbackarrow = 2.5;

@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.event;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
@@ -25,6 +26,7 @@ public class CardboardGogglesEvents {
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent playerTickEvent) {
+        if(!Config.cardboardGoggles()) return;
         if(playerTickEvent.phase != TickEvent.Phase.END) return;
         Player player=playerTickEvent.player;
         if(player.level().isClientSide) return;

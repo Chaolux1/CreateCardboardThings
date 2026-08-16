@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.client.sound;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.common.entity.CardboardJukeboxBlockEntity;
 import net.chaolux.createcardboardthings.registry.block.ModBlocks;
 import net.minecraft.client.Minecraft;
@@ -49,6 +50,10 @@ public class CardboardSoundInstance extends AbstractTickableSoundInstance {
 
     @Override
     public void tick() {
+        if(!Config.cardboardJukebox()) {
+            this.stop();
+            return;
+        }
         Minecraft minecraft=Minecraft.getInstance();
         if(minecraft.level == null) {
             this.stop();

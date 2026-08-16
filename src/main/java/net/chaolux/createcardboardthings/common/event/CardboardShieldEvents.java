@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.event;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -24,6 +25,7 @@ public class CardboardShieldEvents {
 
     @SubscribeEvent
     public static void onProjectile(ProjectileImpactEvent projectileImpactEvent) {
+        if(!Config.cardboardShield()) return;
         if(!(projectileImpactEvent.getRayTraceResult() instanceof EntityHitResult entityHitResult)) return;
         if(!(entityHitResult.getEntity() instanceof Player player)) return;
         if(!isUsedCardboardShield(player)) return;
@@ -37,6 +39,7 @@ public class CardboardShieldEvents {
 
     @SubscribeEvent
     public static void onShieldBlock(ShieldBlockEvent shieldBlockEvent) {
+        if(!Config.cardboardShield()) return;
         if(!(shieldBlockEvent.getEntity() instanceof Player player)) return;
         if(!player.getUseItem().is(ModItems.CARDBOARD_SHIELD.get())) return;
         Entity entity=shieldBlockEvent.getDamageSource().getDirectEntity();

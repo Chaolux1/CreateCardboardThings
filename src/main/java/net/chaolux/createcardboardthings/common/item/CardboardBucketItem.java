@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.item;
 
+import net.chaolux.createcardboardthings.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -40,6 +41,7 @@ public class CardboardBucketItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemStack=player.getItemInHand(interactionHand);
+        if(!Config.cardboardBucket()) return InteractionResultHolder.pass(itemStack);
         BlockHitResult blockHitResult=getPlayerPOVHitResult(level,player, ClipContext.Fluid.SOURCE_ONLY);
         if(blockHitResult.getType() == HitResult.Type.MISS) return InteractionResultHolder.pass(itemStack);
         if(blockHitResult.getType() != HitResult.Type.BLOCK) return InteractionResultHolder.pass(itemStack);
