@@ -1,0 +1,23 @@
+{
+  "item.createcardboardthings.cardboard_pickaxe": "合層紙鎬",
+  "item.createcardboardthings.cardboard_shears": "合層紙鉸",
+  "item.createcardboardthings.cardboard_arrow": "合層紙矢",
+  "item.createcardboardthings.cardboard_elytra": "合層紙翼",
+  "item.createcardboardthings.cardboard_ball": "合層紙團",
+  "item.createcardboardthings.cardboard_ingot": "合層紙錠",
+  "item.createcardboardthings.cardboard_rocket": "合層紙焰火",
+  "item.createcardboardthings.cardboard_saddle": "合層紙鞍",
+  "item.createcardboardthings.cardboard_totem": "合層紙保命符",
+
+  "entity.createcardboardthings.cardboard_arrow": "合層紙矢",
+
+  "tooltip.createcardboardthings.cardboard_pickaxe": "疲若蚍蜉撼樹，堅如破岩勁竹",
+  "tooltip.createcardboardthings.cardboard_shears": "此非戲作邪？",
+  "tooltip.createcardboardthings.cardboard_arrow": "擊之，退之",
+  "tooltip.createcardboardthings.cardboard_elytra": "如無足之鳥，觸地即損",
+  "tooltip.createcardboardthings.cardboard_ball": "倭鉛其內，擲之可致傷",
+  "tooltip.createcardboardthings.cardboard_ingot": "鍛之於合層紙劍內，可增其力",
+  "tooltip.createcardboardthings.cardboard_rocket": "萬戶專用",
+  "tooltip.createcardboardthings.cardboard_saddle": "若以此物為礎，可成鞍",
+  "tooltip.createcardboardthings.cardboard_totem": "一息尚且存，走為上"
+}

@@ -1,0 +1,23 @@
+{
+  "item.createcardboardthings.cardboard_pickaxe": "纸板镐",
+  "item.createcardboardthings.cardboard_shears": "纸板剪刀",
+  "item.createcardboardthings.cardboard_arrow": "纸板箭",
+  "item.createcardboardthings.cardboard_elytra": "纸板鞘翅",
+  "item.createcardboardthings.cardboard_ball": "纸板球",
+  "item.createcardboardthings.cardboard_ingot": "纸板锭",
+  "item.createcardboardthings.cardboard_rocket": "纸板火箭",
+  "item.createcardboardthings.cardboard_saddle": "纸板鞍",
+  "item.createcardboardthings.cardboard_totem": "纸板图腾",
+
+  "entity.createcardboardthings.cardboard_arrow": "纸板箭",
+
+  "tooltip.createcardboardthings.cardboard_pickaxe": "疲弱但坚韧",
+  "tooltip.createcardboardthings.cardboard_shears": "这……这不对吧？",
+  "tooltip.createcardboardthings.cardboard_arrow": "让他们飞起来！",
+  "tooltip.createcardboardthings.cardboard_elytra": "我听人说世界有一种鸟没有脚，这种鸟一辈子只可以降落一次",
+  "tooltip.createcardboardthings.cardboard_ball": "有点雪球里面塞石子的内味了",
+  "tooltip.createcardboardthings.cardboard_ingot": "敲进纸棍里……这一击，贯穿星辰！",
+  "tooltip.createcardboardthings.cardboard_rocket": "“纸”能赋予加速度",
+  "tooltip.createcardboardthings.cardboard_saddle": "这可是能成鞍的料子",
+  "tooltip.createcardboardthings.cardboard_totem": "捡回条命那就赶快点跑吧"
+}

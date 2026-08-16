@@ -45,7 +45,6 @@
   "tooltip.createcardboardthings.cardboard_rocket": "Boots Elytra only",
   "tooltip.createcardboardthings.cardboard_saddle": "A base for future saddles",
   "tooltip.createcardboardthings.cardboard_totem": "Fight or flight? Flight",
-
   "tooltip.createcardboardthings.cardboard_trident": "Made for the void. Keep it away from water and lava",
   "tooltip.createcardboardthings.cardboard_bucket": "Drains source fluids but they always leak onto you",
   "tooltip.createcardboardthings.cardboard_shield": "Returns projectiles to sender. Melee goes right through",
@@ -53,5 +52,4 @@
   "tooltip.createcardboardthings.cardboard_goggles": "A look that blows everyone away",
   "tooltip.createcardboardthings.color_cardboard": "Color code a chaos. Try it on a lever or button",
   "tooltip.createcardboardthings.cardboard_jukebox": "Compressed. Physically"
-
 }
