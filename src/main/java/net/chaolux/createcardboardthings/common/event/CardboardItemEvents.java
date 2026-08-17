@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.event;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -17,13 +18,13 @@ import net.neoforged.neoforge.event.AnvilUpdateEvent;
 
 import java.util.Map;
 
-@EventBusSubscriber
+@EventBusSubscriber(modid = "createcardboardthings")
 public class CardboardItemEvents {
     @SubscribeEvent
     public static void onAnvilUpdate(AnvilUpdateEvent event) {
+        if(!Config.cardboardIngot()) return;
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();
-
         boolean isCreateCardboardSword=left.getItem().builtInRegistryHolder().key().location().equals(ResourceLocation.fromNamespaceAndPath("create","cardboard_sword"));
         boolean isCardboardIngot=right.getItem() == ModItems.CARDBOARD_INGOT.get();
         if(!isCreateCardboardSword || !isCardboardIngot) {

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "createcardboardthings:block/cardboard_tnt_side",
+    "top": "createcardboardthings:block/cardboard_tnt_top",
+    "bottom": "createcardboardthings:block/cardboard_tnt_bottom"
+  }
+}

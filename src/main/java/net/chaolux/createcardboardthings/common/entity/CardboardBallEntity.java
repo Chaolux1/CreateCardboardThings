@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.entity;
 
+import net.chaolux.createcardboardthings.Config;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.network.protocol.Packet;
@@ -32,6 +33,7 @@ public class CardboardBallEntity extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
+        if(!Config.cardboardBall()) return;
         if(!this.level().isClientSide) {
             if(result.getEntity() instanceof LivingEntity target) {
                 target.hurt(this.damageSources().thrown(this, this.getOwner()), 1.0F);

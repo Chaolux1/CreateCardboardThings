@@ -1,0 +1,46 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "marker": "createcardboardthings:block/cardboard_marker",
+    "particle": "createcardboardthings:block/cardboard_marker"
+  },
+  "elements": [
+    {
+      "from": [6.5, 7, 7.96],
+      "to": [9.5, 9, 8.04],
+      "shade": false,
+      "faces": {
+        "north": {
+          "uv": [6, 7, 10, 9],
+          "texture": "#marker",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [6, 7, 10, 9],
+          "texture": "#marker",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [6, 7, 10, 9],
+          "texture": "#marker",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [6, 7, 10, 9],
+          "texture": "#marker",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [6, 7, 10, 9],
+          "texture": "#marker",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [6, 7, 10, 9],
+          "texture": "#marker",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

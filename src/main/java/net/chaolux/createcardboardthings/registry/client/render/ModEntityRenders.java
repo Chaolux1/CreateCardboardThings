@@ -1,8 +1,6 @@
 package net.chaolux.createcardboardthings.registry.client.render;
 
-import net.chaolux.createcardboardthings.client.render.CardboardArrowRenderer;
-import net.chaolux.createcardboardthings.client.render.CardboardBallRenderer;
-import net.chaolux.createcardboardthings.client.render.CardboardElytraLayer;
+import net.chaolux.createcardboardthings.client.render.*;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -15,14 +13,17 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-import static net.chaolux.createcardboardthings.CreateCardboardThings.MODID;
+import static net.chaolux.createcardboardthings.CreateCardboardThings.MOD_ID;
 
-@EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = net.neoforged.api.distmarker.Dist.CLIENT)
+@EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
 public class ModEntityRenders {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.CARDBOARD_ARROW.get(), CardboardArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.CARDBOARD_BALL.get(), CardboardBallRenderer::new);
+        event.registerEntityRenderer(ModEntities.CARDBOARD_TRIDENT.get(), CardboardTridentRenderer::new);
+        event.registerEntityRenderer(ModEntities.CARDBOARD_TNT.get(), CardboardTntRenderer::new);
+        event.registerEntityRenderer(ModEntities.CARDBOARD_MARKER.get(), CardboardMarkerRenderer::new);
     }
 
     @SubscribeEvent

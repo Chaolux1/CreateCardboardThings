@@ -1,9 +1,13 @@
 package net.chaolux.createcardboardthings;
 
 import com.mojang.logging.LogUtils;
+import net.chaolux.createcardboardthings.registry.block.ModBlockEntityTypes;
+import net.chaolux.createcardboardthings.registry.block.ModBlocks;
 import net.chaolux.createcardboardthings.registry.data.ModDataComponents;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -19,14 +23,16 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
-@Mod(CreateCardboardThings.MODID)
+@Mod(CreateCardboardThings.MOD_ID)
 public class CreateCardboardThings {
-    public static final String MODID = "createcardboardthings";
+    public static final String MOD_ID = "createcardboardthings";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public CreateCardboardThings(IEventBus modEventBus, ModContainer modContainer) {
         ModDataComponents.COMPONENT.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModBlockEntityTypes.TILES.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
@@ -47,6 +53,8 @@ public class CreateCardboardThings {
             event.accept(ModItems.CARDBOARD_PICKAXE.get());
             event.accept(ModItems.CARDBOARD_SHEARS.get());
             event.accept(ModItems.CARDBOARD_SADDLE.get());
+            event.accept(ModItems.CARDBOARD_BUCKET.get());
+            event.accept(ModItems.CARDBOARD_GOGGLES.get());
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
@@ -54,10 +62,36 @@ public class CreateCardboardThings {
             event.accept(ModItems.CARDBOARD_TOTEM.get());
             event.accept(ModItems.CARDBOARD_BALL.get());
             event.accept(ModItems.CARDBOARD_ROCKET.get());
+            event.accept(ModItems.CARDBOARD_TRIDENT.get());
+            event.accept(ModItems.CARDBOARD_SHIELD.get());
         }
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.CARDBOARD_INGOT.get());
+            event.accept(ModItems.WHITE_CARDBOARD.get());
+            event.accept(ModItems.ORANGE_CARDBOARD.get());
+            event.accept(ModItems.MAGENTA_CARDBOARD.get());
+            event.accept(ModItems.LIGHT_BLUE_CARDBOARD.get());
+            event.accept(ModItems.YELLOW_CARDBOARD.get());
+            event.accept(ModItems.LIME_CARDBOARD.get());
+            event.accept(ModItems.PINK_CARDBOARD.get());
+            event.accept(ModItems.GRAY_CARDBOARD.get());
+            event.accept(ModItems.LIGHT_GRAY_CARDBOARD.get());
+            event.accept(ModItems.CYAN_CARDBOARD.get());
+            event.accept(ModItems.PURPLE_CARDBOARD.get());
+            event.accept(ModItems.BLUE_CARDBOARD.get());
+            event.accept(ModItems.BROWN_CARDBOARD.get());
+            event.accept(ModItems.GREEN_CARDBOARD.get());
+            event.accept(ModItems.RED_CARDBOARD.get());
+            event.accept(ModItems.BLACK_CARDBOARD.get());
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(ModItems.CARDBOARD_TNT.get());
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(ModItems.CARDBOARD_JUKEBOX.get());
         }
     }
 
@@ -66,11 +100,13 @@ public class CreateCardboardThings {
 
     }
 
-    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            event.enqueueWork(() -> {
+                ItemProperties.register(ModItems.CARDBOARD_SHIELD.get(),ResourceLocation.fromNamespaceAndPath("minecraft","blocking"),((itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0f : 0.0f));
+            });
         }
     }
 }

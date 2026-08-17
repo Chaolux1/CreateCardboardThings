@@ -1,5 +1,6 @@
 package net.chaolux.createcardboardthings.common.item;
 
+import net.chaolux.createcardboardthings.Config;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -27,6 +28,7 @@ public class CardboardRocketItem extends FireworkRocketItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack=player.getItemInHand(hand);
+        if(!Config.cardboardRocket()) return InteractionResultHolder.pass(stack);
         if(!player.isFallFlying()) {
             return InteractionResultHolder.fail(stack);
         }
