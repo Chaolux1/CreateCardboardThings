@@ -65,10 +65,6 @@ public class CardboardTridentEntity extends AbstractArrow {
 
     @Override
     public void tick() {
-        if(!Config.cardboardTrident()) {
-            this.discard();
-            return;
-        }
         if(touchFluid()) {
             destroyFluid();
             return;

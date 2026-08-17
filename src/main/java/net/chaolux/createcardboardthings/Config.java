@@ -12,7 +12,6 @@ public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     private static final ModConfigSpec.BooleanValue CARDBOARD_ARROW;
     private static final ModConfigSpec.BooleanValue CARDBOARD_ELYTRA;
-//    private static final ModConfigSpec.BooleanValue CARDBOARD_PICKAXE;
     private static final ModConfigSpec.BooleanValue CARDBOARD_SHEARS;
     private static final ModConfigSpec.BooleanValue CARDBOARD_BALL;
     private static final ModConfigSpec.BooleanValue CARDBOARD_INGOT;
@@ -47,7 +46,6 @@ public class Config {
         BUILDER.push("feature");
         CARDBOARD_ARROW=BUILDER.define("cardboardArrow",true);
         CARDBOARD_ELYTRA=BUILDER.define("cardboardElytra",true);
-//        CARDBOARD_PICKAXE=BUILDER.define("cardboardPickaxe",true);
         CARDBOARD_SHEARS=BUILDER.define("cardboardShears",true);
         CARDBOARD_BALL=BUILDER.define("cardboardBall",true);
         CARDBOARD_INGOT=BUILDER.define("cardboardIngot",true);
@@ -88,10 +86,6 @@ public class Config {
     public static boolean cardboardElytra() {
         return CARDBOARD_ELYTRA.get();
     }
-
-//    public static boolean cardboardPickaxe() {
-//        return CARDBOARD_PICKAXE.get();
-//    }
 
     public static boolean cardboardShears() {
         return CARDBOARD_SHEARS.get();
