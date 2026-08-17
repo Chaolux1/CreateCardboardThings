@@ -35,27 +35,10 @@ public class CardboardShieldItemRenderer extends BlockEntityWithoutLevelRenderer
             super.renderByItem(itemStack,itemDisplayContext,poseStack,multiBufferSource,light,overlay);
             return;
         }
-//        if(usedModel(itemDisplayContext)) {
-//            renderModel(itemStack,poseStack,multiBufferSource,light,overlay);
-//            return;
-//        }
         poseStack.pushPose();
         poseStack.scale(1.0f,-1.0f,-1.0f);
         VertexConsumer vertexConsumer= ItemRenderer.getFoilBufferDirect(multiBufferSource,this.shieldModel.renderType(TEXTURE),true,itemStack.hasFoil());
         this.shieldModel.renderToBuffer(poseStack,vertexConsumer,light,overlay,1.0f,1.0f,1.0f,1.0f);
         poseStack.popPose();
     }
-
-//    private static boolean usedModel(ItemDisplayContext itemDisplayContext) {
-//        return itemDisplayContext == ItemDisplayContext.GUI || itemDisplayContext == ItemDisplayContext.GROUND || itemDisplayContext == ItemDisplayContext.FIXED;
-//    }
-//
-//    private static void renderModel(ItemStack itemStack,PoseStack poseStack,MultiBufferSource multiBufferSource,int light,int overlay) {
-//        Minecraft minecraft=Minecraft.getInstance();
-//        BakedModel bakedModel=minecraft.getModelManager().getModel(ModClientModels.CARDBOARD_SHIELD_ITEM);
-//        poseStack.pushPose();
-//        poseStack.translate(0.5,0.5,0.5);
-//        minecraft.getItemRenderer().render(itemStack,ItemDisplayContext.NONE,false,poseStack,multiBufferSource,light,overlay,bakedModel);
-//        poseStack.popPose();
-//    }
 }
