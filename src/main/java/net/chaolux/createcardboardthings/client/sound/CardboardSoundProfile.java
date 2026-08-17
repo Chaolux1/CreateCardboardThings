@@ -43,9 +43,8 @@ public class CardboardSoundProfile {
         this.phase=phase;
     }
 
-    public static CardboardSoundProfile from(Item item) {
-        ResourceLocation resourceLocation= BuiltInRegistries.ITEM.getKey(item);
-        String string=resourceLocation != null ? resourceLocation.toString() : item.getDescriptionId();
+    public static CardboardSoundProfile from(ResourceLocation resourceLocation) {
+        String string=resourceLocation.toString();
         long seed=fnv(string);
         Style style=Style.values()[(int) Math.floorMod(seed,Style.values().length)];
         float pitch=lerp(sample(seed,1),0.72f,1.28f);

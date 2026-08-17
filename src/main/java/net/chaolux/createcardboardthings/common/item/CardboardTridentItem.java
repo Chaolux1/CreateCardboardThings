@@ -76,14 +76,13 @@ public class CardboardTridentItem extends TridentItem {
             return;
         }
         if(!canUseCarboardTrident(level,player)) return;
-        int riptideLevel=enchantment(player,itemStack, Enchantments.RIPTIDE);
+        int riptideLevel=enchantment(player,itemStack,Enchantments.RIPTIDE);
         if(riptideLevel > 0) {
             damage(level,player,itemStack,player.getUsedItemHand());
-            player.awardStat(Stats.ITEM_USED.get(this));
             useCarboardReptide(level,player,itemStack,riptideLevel);
             return;
         }
-        throwTrident(level,player,itemStack);
+        if(level instanceof ServerLevel serverLevel) throwTrident(serverLevel,player,itemStack);
         player.awardStat(Stats.ITEM_USED.get(this));
     }
 
@@ -92,14 +91,14 @@ public class CardboardTridentItem extends TridentItem {
         componentList.add(Component.translatable("tooltip.createcardboardthings.cardboard_trident").withStyle(ChatFormatting.GRAY));
     }
 
-    private static void throwTrident(Level level,Player player,ItemStack itemStack) {
-        if(level.isClientSide) return;
-        damage(level,player,itemStack,player.getUsedItemHand());
-        CardboardTridentEntity cardboardTridentEntity=new CardboardTridentEntity(level,player,itemStack);
+    private static void throwTrident(ServerLevel serverLevel,Player player,ItemStack itemStack) {
+        ItemStack stack=itemStack.copyWithCount(1);
+        CardboardTridentEntity cardboardTridentEntity=new CardboardTridentEntity(serverLevel,player,stack);
+        cardboardTridentEntity.pickup=player.getAbilities().instabuild ? AbstractArrow.Pickup.CREATIVE_ONLY : AbstractArrow.Pickup.ALLOWED;
         cardboardTridentEntity.shootFromRotation(player,player.getXRot(),player.getYRot(),0.0f,2.5f,1.0f);
-        if(player.getAbilities().instabuild) cardboardTridentEntity.pickup= AbstractArrow.Pickup.CREATIVE_ONLY;
-        level.addFreshEntity(cardboardTridentEntity);
-        level.playSound(null,cardboardTridentEntity, SoundEvents.TRIDENT_THROW.value(), SoundSource.PLAYERS,1.0f,1.0f);
+        if(!serverLevel.addFreshEntity(cardboardTridentEntity)) return;
+        damage(serverLevel,player,itemStack,player.getUsedItemHand());
+        serverLevel.playSound(null,cardboardTridentEntity,SoundEvents.TRIDENT_THROW.value(),SoundSource.PLAYERS,1.0f,1.0f);
         if(!player.getAbilities().instabuild) itemStack.shrink(1);
     }
 

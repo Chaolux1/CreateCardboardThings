@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -26,15 +27,13 @@ public class CardboardSoundInstance extends AbstractTickableSoundInstance {
     private static final long CRACKLE_PITCH=0x19D7A4C268BEF315L;
     private static final long RATTLE_PITCH=0x5D0E3B92A74FC816L;
     private final BlockPos blockPos;
-    private final Item item;
     private final CardboardSoundProfile cardboardSoundProfile;
     private int value;
     private int tick;
     private boolean clientRecord;
-    public CardboardSoundInstance(SoundEvent soundEvent,BlockPos blockPos,Item item,CardboardSoundProfile cardboardSoundProfile) {
-        super(soundEvent, SoundSource.RECORDS, RandomSource.create(cardboardSoundProfile.seed()));
+    public CardboardSoundInstance(ResourceLocation resourceLocation, BlockPos blockPos, CardboardSoundProfile cardboardSoundProfile) {
+        super(SoundEvent.createVariableRangeEvent(resourceLocation), SoundSource.RECORDS, RandomSource.create(cardboardSoundProfile.seed()));
         this.blockPos=blockPos.immutable();
-        this.item=item;
         this.cardboardSoundProfile=cardboardSoundProfile;
         this.x=blockPos.getX() + 0.5;
         this.y=blockPos.getY() + 0.5;
@@ -64,7 +63,7 @@ public class CardboardSoundInstance extends AbstractTickableSoundInstance {
         }
         BlockEntity blockEntity=minecraft.level.getBlockEntity(this.blockPos);
         if(blockEntity instanceof CardboardJukeboxBlockEntity cardboardJukeboxBlockEntity) {
-            if(cardboardJukeboxBlockEntity.isPlayingRecordItem(this.item)) {
+            if(cardboardJukeboxBlockEntity.isPlaying()) {
                 this.clientRecord=true;
             } else if(this.clientRecord) {
                 this.stop();
@@ -73,6 +72,9 @@ public class CardboardSoundInstance extends AbstractTickableSoundInstance {
                 this.stop();
                 return;
             }
+        } else if(this.value >= 20) {
+            this.stop();
+            return;
         }
         this.value++;
         updatePitch();

@@ -152,6 +152,7 @@ public class CardboardTridentEntity extends AbstractArrow {
 
     @Override
     protected ItemStack getDefaultPickupItem() {
+        if(this.itemStack == null || this.itemStack.isEmpty()) return new ItemStack(ModItems.CARDBOARD_TRIDENT.get());
         return this.itemStack.copy();
     }
 

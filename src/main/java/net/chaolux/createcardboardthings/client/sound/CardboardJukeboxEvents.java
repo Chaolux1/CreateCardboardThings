@@ -35,17 +35,12 @@ public class CardboardJukeboxEvents {
         if(minecraft.level == null) return;
         BlockPos blockPos=BlockPos.containing(soundInstance.getX(),soundInstance.getY(),soundInstance.getZ());
         if(!minecraft.level.getBlockState(blockPos).is(ModBlocks.CARDBOARD_JUKEBOX.get())) return;
-        if(!(minecraft.level.getBlockEntity(blockPos) instanceof CardboardJukeboxBlockEntity cardboardJukeboxBlockEntity)) return;
-
-        ItemStack itemStack=cardboardJukeboxBlockEntity.getRecord();
-        if(itemStack.isEmpty()) return;
-        Optional<Holder<JukeboxSong>> jukeboxSongHolder=JukeboxSong.fromStack(minecraft.level.registryAccess(),itemStack);
-        if(jukeboxSongHolder.isEmpty()) return;
-        if(!jukeboxSongHolder.get().value().soundEvent().value().getLocation().equals(soundInstance.getLocation())) return;
-        CardboardSoundProfile cardboardSoundProfile=CardboardSoundProfile.from(itemStack.getItem());
-        CardboardSoundInstance cardboardSoundInstance=new CardboardSoundInstance(jukeboxSongHolder.get().value().soundEvent().value(),blockPos,itemStack.getItem(),cardboardSoundProfile);
-        CardboardSoundInstance instance=MAP.put(blockPos.immutable(),cardboardSoundInstance);
-        if(instance != null) instance.forceStop();
+        ResourceLocation resourceLocation=soundInstance.getLocation();
+        CardboardSoundProfile cardboardSoundProfile=CardboardSoundProfile.from(resourceLocation);
+        CardboardSoundInstance cardboardSoundInstance=new CardboardSoundInstance(resourceLocation,blockPos,cardboardSoundProfile);
+        MAP.entrySet().removeIf(entry -> entry.getValue().isStopped());
+        CardboardSoundInstance previous=MAP.put(blockPos.immutable(),cardboardSoundInstance);
+        if(previous != null) previous.forceStop();
         playSoundEvent.setSound(cardboardSoundInstance);
     }
 
