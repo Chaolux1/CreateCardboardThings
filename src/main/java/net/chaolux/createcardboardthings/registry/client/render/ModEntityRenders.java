@@ -7,6 +7,7 @@ import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.layers.CapeLayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -31,11 +32,12 @@ public class ModEntityRenders {
         for(String skin:event.getSkins()) {
             EntityRenderer<? extends Player> rendererRaw=event.getSkin(skin);
             if(rendererRaw instanceof LivingEntityRenderer<?,?> genericRenderer) {
-                LivingEntityRenderer<?,?> rawRenderer=genericRenderer;
-                if(rawRenderer.getModel() instanceof PlayerModel<?> playerModel) {
+                if(genericRenderer.getModel() instanceof PlayerModel<?> playerModel) {
                     @SuppressWarnings("unchecked")
                     LivingEntityRenderer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> castedRenderer =
-                            (LivingEntityRenderer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>>) rawRenderer;
+                            (LivingEntityRenderer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>>) genericRenderer;
+                    boolean cape=castedRenderer.layers.removeIf(abstractClientPlayerPlayerModelRenderLayer -> abstractClientPlayerPlayerModelRenderLayer.getClass() == CapeLayer.class);
+                    if(cape) castedRenderer.addLayer(new CardboardCapeLayer(castedRenderer));
                     castedRenderer.addLayer(new CardboardElytraLayer<>(castedRenderer, event.getEntityModels()));
                 }
             }
