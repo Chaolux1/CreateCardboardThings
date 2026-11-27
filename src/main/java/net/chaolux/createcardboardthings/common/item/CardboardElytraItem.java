@@ -50,26 +50,31 @@ public class CardboardElytraItem extends ElytraItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        if(!Config.cardboardElytra()) return;
-        if (!(entity instanceof Player player)) return;
-        if (level.isClientSide) return;
-            ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
-            if (!chest.is(ModItems.CARDBOARD_ELYTRA.get())) return;
-            boolean isFlying = player.isFallFlying();
-            var tag = stack.getOrCreateTag();
-            boolean flightStart = tag.getBoolean("flightStart");
-
-            if (isFlying && !flightStart) {
-                tag.putBoolean("flightStart", true);
-            } else if (!isFlying && flightStart) {
-                player.setItemSlot(EquipmentSlot.CHEST, ItemStack.EMPTY);
-                player.inventoryMenu.broadcastChanges();
-                tag.putBoolean("flightStart", false);
-            }
+        if(level.isClientSide || !(entity instanceof Player player)) return;
+        if(!player.isFallFlying() && isUse(stack)) {
+            stack.shrink(1);
+            player.inventoryMenu.broadcastChanges();
+        }
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("tooltip.createcardboardthings.cardboard_elytra").withStyle(ChatFormatting.GRAY));
+    }
+
+    @Override
+    public boolean elytraFlightTick(ItemStack itemStack,LivingEntity livingEntity,int value) {
+        if(!canElytraFly(itemStack,livingEntity)) return false;
+        if(!livingEntity.level().isClientSide && livingEntity instanceof Player) {
+            ItemStack stack=livingEntity.getItemBySlot(EquipmentSlot.CHEST);
+            if(stack == itemStack || !stack.canElytraFly(livingEntity)) {
+                if(!isUse(itemStack)) itemStack.getOrCreateTag().putBoolean("flightStart",true);
+            }
+        }
+        return true;
+    }
+
+    public static boolean isUse(ItemStack itemStack) {
+        return itemStack.hasTag() && itemStack.getTag().getBoolean("flightStart");
     }
 }

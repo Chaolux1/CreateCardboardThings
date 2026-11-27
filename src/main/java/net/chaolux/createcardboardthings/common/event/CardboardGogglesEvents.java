@@ -1,6 +1,7 @@
 package net.chaolux.createcardboardthings.common.event;
 
 import net.chaolux.createcardboardthings.Config;
+import net.chaolux.createcardboardthings.integration.curiosapi.CardboardEquipment;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
@@ -45,7 +46,7 @@ public class CardboardGogglesEvents {
     }
 
     private static boolean isGoggles(Player player) {
-        return player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.CARDBOARD_GOGGLES.get());
+        return CardboardEquipment.isCardboardGoogles(player);
     }
 
     private static boolean push(Player player) {

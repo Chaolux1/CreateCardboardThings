@@ -1,6 +1,7 @@
 package net.chaolux.createcardboardthings.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.chaolux.createcardboardthings.integration.curiosapi.CardboardEquipment;
 import net.chaolux.createcardboardthings.registry.item.ModItems;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -16,7 +17,7 @@ public class CardboardCapeLayer extends CapeLayer {
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource multiBufferSource,int light,AbstractClientPlayer abstractClientPlayer,float value,float data,float tick,float values,float yaw,float pitch) {
-        if(abstractClientPlayer.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.CARDBOARD_ELYTRA.get())) return;
+        if(CardboardEquipment.isCardboardElytra(abstractClientPlayer)) return;
         super.render(poseStack,multiBufferSource,light,abstractClientPlayer,value,data,tick,values,yaw,pitch);
     }
 }

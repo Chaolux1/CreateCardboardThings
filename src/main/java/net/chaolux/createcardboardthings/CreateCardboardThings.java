@@ -1,6 +1,9 @@
 package net.chaolux.createcardboardthings;
 
 import com.mojang.logging.LogUtils;
+import net.chaolux.createcardboardthings.integration.curiosapi.CardboardEquipment;
+import net.chaolux.createcardboardthings.integration.curiosapi.CuriosAPIPlugin;
+import net.chaolux.createcardboardthings.integration.curiosapi.client.render.CuriosAPIRenderer;
 import net.chaolux.createcardboardthings.registry.block.ModBlockEntityTypes;
 import net.chaolux.createcardboardthings.registry.block.ModBlocks;
 import net.chaolux.createcardboardthings.registry.entity.ModEntities;
@@ -48,7 +51,6 @@ public class CreateCardboardThings
         ModBlocks.BLOCKS.register(modEventBus);
         ModBlockEntityTypes.TILES.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
-
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -57,7 +59,7 @@ public class CreateCardboardThings
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(CardboardEquipment::registerElytraSlot);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event)
@@ -121,6 +123,7 @@ public class CreateCardboardThings
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            if(CardboardEquipment.isCuriosAPI()) CuriosAPIRenderer.register();
             event.enqueueWork(() -> {
                ItemProperties.register(ModItems.CARDBOARD_SHIELD.get(),new ResourceLocation("minecraft","blocking"),((itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0f : 0.0f));
             });
