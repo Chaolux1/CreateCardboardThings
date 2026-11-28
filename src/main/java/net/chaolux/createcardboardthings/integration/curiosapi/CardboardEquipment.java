@@ -19,7 +19,7 @@ public class CardboardEquipment {
         return isCuriosAPI() && CuriosAPIPlugin.isItem(livingEntity,item);
     }
 
-    public static boolean isCardboardGoogles(LivingEntity livingEntity) {
+    public static boolean isCardboardGoggles(LivingEntity livingEntity) {
         return livingEntity.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.CARDBOARD_GOGGLES.get()) || isEquipment(livingEntity,ModItems.CARDBOARD_GOGGLES.get());
     }
 

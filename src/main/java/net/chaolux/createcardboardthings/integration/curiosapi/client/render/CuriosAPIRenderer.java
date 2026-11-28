@@ -32,7 +32,7 @@ import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 public class CuriosAPIRenderer {
     public static void register() {
-        CuriosRendererRegistry.register(ModItems.CARDBOARD_GOGGLES.get(), CardboardGooglesRenderer::new);
+        CuriosRendererRegistry.register(ModItems.CARDBOARD_GOGGLES.get(), CardboardGogglesRenderer::new);
         CuriosRendererRegistry.register(AllItems.CARDBOARD_HELMET.get(), CardboardArmorRenderer::new);
         CuriosRendererRegistry.register(AllItems.CARDBOARD_CHESTPLATE.get(), CardboardArmorRenderer::new);
         CuriosRendererRegistry.register(AllItems.CARDBOARD_LEGGINGS.get(), CardboardArmorRenderer::new);
@@ -51,7 +51,7 @@ public class CuriosAPIRenderer {
         IClientItemExtensions.of(itemStack).renderHelmetOverlay(itemStack,minecraft.player,post.getWindow().getGuiScaledWidth(),post.getWindow().getGuiScaledHeight(),post.getPartialTick());
     }
 
-    private static final class CardboardGooglesRenderer implements ICurioRenderer {
+    private static final class CardboardGogglesRenderer implements ICurioRenderer {
         @Override
         public <T extends LivingEntity,M extends EntityModel<T>> void render(ItemStack itemStack, SlotContext slotContext, PoseStack poseStack, RenderLayerParent<T,M> renderLayerParent, MultiBufferSource multiBufferSource,int light,float value,float data,float tick,float values,float yaw,float pitch) {
             if(!(renderLayerParent.getModel() instanceof HumanoidModel<?> humanoidModel)) return;
