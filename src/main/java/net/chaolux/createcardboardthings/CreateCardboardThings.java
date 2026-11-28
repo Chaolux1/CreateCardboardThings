@@ -1,6 +1,8 @@
 package net.chaolux.createcardboardthings;
 
 import com.mojang.logging.LogUtils;
+import net.chaolux.createcardboardthings.integration.curiosapi.CardboardEquipment;
+import net.chaolux.createcardboardthings.integration.curiosapi.client.render.CuriosAPIRenderer;
 import net.chaolux.createcardboardthings.registry.block.ModBlockEntityTypes;
 import net.chaolux.createcardboardthings.registry.block.ModBlocks;
 import net.chaolux.createcardboardthings.registry.data.ModDataComponents;
@@ -105,6 +107,7 @@ public class CreateCardboardThings {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
+                if(CardboardEquipment.isCuriosAPI()) CuriosAPIRenderer.register();
                 ItemProperties.register(ModItems.CARDBOARD_SHIELD.get(),ResourceLocation.fromNamespaceAndPath("minecraft","blocking"),((itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0f : 0.0f));
             });
         }

@@ -128,7 +128,7 @@ public class Config {
     }
 
     public static boolean cardboardJukebox() {
-        return CARDBOARD_JUKEBOX.get();
+        return SPEC.isLoaded() && CARDBOARD_JUKEBOX.get();
     }
 
     public static boolean colorCardboard(DyeColor dyeColor) {

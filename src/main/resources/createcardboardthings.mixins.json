@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "net.chaolux.createcardboardthings.common.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "createcardboardthings.refmap.json",
+  "mixins": [
+    "CardboardArmorHandlerMixin",
+    "ElytraSlotCommonModMixin"
+  ],
+  "client": [
+    "ETItemRendererMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

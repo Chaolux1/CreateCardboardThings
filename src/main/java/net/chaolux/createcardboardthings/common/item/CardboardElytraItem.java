@@ -50,25 +50,31 @@ public class CardboardElytraItem extends ElytraItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-        if(!Config.cardboardElytra()) return;
-        if (!(entity instanceof Player player)) return;
-        if (level.isClientSide) return;
-            ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
-            if (!chest.is(ModItems.CARDBOARD_ELYTRA.get())) return;
-            boolean isFlying = player.isFallFlying();
-            boolean flightStart = stack.getOrDefault(ModDataComponents.FLIGHT_START.get(),false);
-
-            if (isFlying && !flightStart) {
-                stack.set(ModDataComponents.FLIGHT_START.get(),true);
-            } else if (!isFlying && flightStart) {
-                player.setItemSlot(EquipmentSlot.CHEST, ItemStack.EMPTY);
-                player.inventoryMenu.broadcastChanges();
-                stack.set(ModDataComponents.FLIGHT_START.get(),false);
-            }
+        if(level.isClientSide || !(entity instanceof Player player)) return;
+        if(!player.isFallFlying() && isUse(stack)) {
+            stack.shrink(1);
+            player.inventoryMenu.broadcastChanges();
+        }
     }
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("tooltip.createcardboardthings.cardboard_elytra").withStyle(ChatFormatting.GRAY));
+    }
+
+    @Override
+    public boolean elytraFlightTick(ItemStack itemStack,LivingEntity livingEntity,int value) {
+        if(!canElytraFly(itemStack,livingEntity)) return false;
+        if(!livingEntity.level().isClientSide && livingEntity instanceof Player) {
+            ItemStack stack=livingEntity.getItemBySlot(EquipmentSlot.CHEST);
+            if(stack == itemStack || !stack.canElytraFly(livingEntity)) {
+                if(!isUse(itemStack)) itemStack.set(ModDataComponents.FLIGHT_START.get(),true);
+            }
+        }
+        return true;
+    }
+
+    public static boolean isUse(ItemStack itemStack) {
+        return itemStack.getOrDefault(ModDataComponents.FLIGHT_START.get(),false);
     }
 }

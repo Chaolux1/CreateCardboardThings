@@ -48,12 +48,16 @@ public class CardboardSoundInstance extends AbstractTickableSoundInstance {
 
     @Override
     public void tick() {
+        Minecraft minecraft=Minecraft.getInstance();
+        if(minecraft.level == null) {
+            this.stop();
+            return;
+        }
         if(!Config.cardboardJukebox()) {
             this.stop();
             return;
         }
-        Minecraft minecraft=Minecraft.getInstance();
-        if(minecraft.level == null) {
+        if(!minecraft.level.hasChunkAt(this.blockPos)) {
             this.stop();
             return;
         }
@@ -161,9 +165,7 @@ public class CardboardSoundInstance extends AbstractTickableSoundInstance {
     }
 
     private void play(Holder<SoundEvent> soundEvent, float volume, float pitch) {
-        Minecraft minecraft=Minecraft.getInstance();
-        if(minecraft.level == null) return;
-        minecraft.level.playLocalSound(this.x,this.y,this.z,soundEvent.value(),SoundSource.BLOCKS,volume,pitch,false);
+        CardboardJukeboxEvents.setQueue(this.blockPos,soundEvent.value(),volume,pitch);
     }
 
     private static float notePitch(int note) {
